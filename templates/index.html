@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cement Strength Calculator</title>
+</head>
+
+<body>
+    <div class="TopContainer" >
+        <header>
+            <h1>Chemical Property Modelling</h1>
+            <h2>Calculate Strength of Cement</h2>
+        </header>
+        <div class="MiddleContainer">
+            <div class="text-views">
+                <form action="{{url_for('predict')}}" method="post">
+                    <table>
+                        <tr>
+                            <td>Material Quantity</td>
+                            <td><input type="number" step="0.01" name="Material_Quality" required></td>
+                            <td> in gm </td>
+                        </tr>
+                        <tr>
+                            <td>Additive Catalyst</td>
+                            <td><input type="number" step="0.01" name="Additive_catalyst" required></td>
+                            <td> in gm </td>
+                        </tr>
+                        <tr>
+                            <td>Ash Component</td>
+                            <td><input type="number" step="0.01" name="Ash_Component" required></td>
+                            <td> in gm </td>
+                        </tr>
+                        <tr>
+                            <td>Water Mix </td>
+                            <td><input type="number" step="0.01" name="Water_Mix" required></td>
+                            <td> in ml </td>
+                        </tr>
+                        <tr>
+                            <td>Plasticizer </td>
+                            <td><input type="number" step="0.01" name="Plasticizer" required></td>
+                            <td> in gm </td>
+                        </tr>
+                        <tr>
+                            <td>Moderate Aggregator</td>
+                            <td><input type="number" step="0.01" name="Moderate_Aggregator" required></td>
+                        </tr>
+                        <tr>
+                            <td>Refined Aggregator</td>
+                            <td><input type="number" step="0.01" name="Refined_Aggregator" required></td>
+                        </tr>
+                        <tr>
+                            <td>Formulation Duration </td>
+                            <td><input type="number" step="0.01" name="Formulation_Duration" required></td>
+                            <td> in hrs </td>
+                        </tr>
+                    </table>
+                    <div class="button-container">
+                        <input class="button" type="submit" value="Calculate">
+                    </div>
+                </form>
+
+                <h2>{{predictedOutput}}</h2>
+            </div>  
+        </div>
+    </div>
+</body>
+</html>
